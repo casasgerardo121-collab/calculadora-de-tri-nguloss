@@ -1,0 +1,219 @@
+:root {
+  color-scheme: light;
+  --text: #242424;
+  --muted: #707070;
+  --line: #dedede;
+  --soft: #f6f6f6;
+  --accent: #343434;
+  --error: #9f3030;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main {
+  width: min(960px, calc(100% - 32px));
+  margin: 42px auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+
+.intro {
+  color: var(--muted);
+  margin: 6px 0 24px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+.tab {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.tab[aria-selected="true"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(260px, .85fr) minmax(320px, 1.15fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.panel h2 {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: 0 0 18px;
+}
+
+.fields {
+  display: grid;
+  gap: 12px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  font-size: .88rem;
+  color: #555;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 9px 10px;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #bdbdbd;
+  outline-offset: 1px;
+}
+
+.primary {
+  width: 100%;
+  margin-top: 18px;
+  padding: 10px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.primary:hover {
+  background: #111;
+}
+
+.result[hidden],
+.mode[hidden] {
+  display: none;
+}
+
+.result {
+  margin-top: 24px;
+}
+
+.result h2 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+.formula-title {
+  margin-top: 18px !important;
+}
+
+.error {
+  margin-top: 14px;
+  color: var(--error);
+  font-size: .92rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.stat {
+  padding: 10px 12px;
+  background: var(--soft);
+  border-radius: 7px;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.stat strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.drawing {
+  width: 100%;
+  min-height: 250px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.drawing text {
+  font: 14px system-ui, sans-serif;
+  fill: #333;
+}
+
+.formulas {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  background: var(--soft);
+  border-radius: 7px;
+  white-space: pre-wrap;
+  font: .87rem/1.65 ui-monospace, SFMono-Regular, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  main {
+    margin: 24px auto;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de triángulos</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<main>
+    <h1>Calculadora de triángulos</h1>
+    <p class="intro">Ingresa las medidas conocidas para calcular y representar el triángulo.</p>
+
+    <nav class="tabs" aria-label="Tipo de triángulo">
+    <button class="tab" type="button" data-mode="right" aria-selected="true">Rectángulo</button>
+    <button class="tab" type="button" data-mode="oblique" aria-selected="false">Oblicuángulo</button>
+    </nav>
+
+    <div class="layout">
+    <section class="panel">
+        <div id="rightMode" class="mode">
+        <h2>Triángulo rectángulo</h2>
+        <p class="hint">
+            El ángulo C es 90°. Ingresa dos datos distintos; para conocer los lados
+            también necesitas al menos un lado.
+        </p>
+            <div id="rightFields" class="fields"></div>
+        </div>
+
+        <div id="obliqueMode" class="mode" hidden>
+            <h2>Triángulo oblicuángulo</h2>
+            <p class="hint">Elige si será acutángulo u obtusángulo e ingresa tres datos distintos.</p>
+            <div class="fields">
+            <label>
+            Tipo de triángulo
+                <select id="triangleKind">
+                <option value="acute">Acutángulo (todos los ángulos menores de 90°)</option>
+                <option value="obtuse">Obtusángulo (un ángulo mayor de 90°)</option>
+            </select>
+            </label>
+            <div id="obliqueFields" class="fields"></div>
+        </div>
+        </div>
+
+        <button id="calculate" class="primary" type="button">Calcular triángulo</button>
+        <div id="error" class="error" role="alert" aria-live="polite"></div>
+        </section>
+
+        <section id="result" class="result" hidden aria-live="polite">
+        <h2>Resultados</h2>
+        <div id="stats" class="stats"></div>
+        <svg id="drawing" class="drawing" viewBox="0 0 520 310"
+        role="img" aria-label="Dibujo del triángulo calculado"></svg>
+        <h2 class="formula-title">Fórmulas utilizadas</h2>
+        <pre id="formulas" class="formulas"></pre>
+        </section>
+    </div>
+    </main>
+</body>
+</html>
